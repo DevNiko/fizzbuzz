@@ -28,6 +28,7 @@ class FizzBuzzProducer
      * All other positions will be returned as string. Negative numbers will be ignored.
      *
      * @param int $position
+     * @param string $eol = ''   Determines the EOL of the line
      * @return string
      */
     public function createOutput(int $position, string $eol = ''): string
