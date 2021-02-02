@@ -13,18 +13,18 @@ class FizzBuzzTraitTest extends TestCase
     public function fizzBuzzTraitDataProvider()
     {
         return [
-            [new Fizz(), 'Fizz' . PHP_EOL],
-            [new Buzz(), 'Buzz' . PHP_EOL],
-            [new FizzBuzz(), 'FizzBuzz' . PHP_EOL],
+            [new Fizz(), '', 'Fizz'],
+            [new Buzz(), '<br/>', 'Buzz<br/>'],
+            [new FizzBuzz(), PHP_EOL,'FizzBuzz' . PHP_EOL],
         ];
     }
 
     /**
      * @dataProvider fizzBuzzTraitDataProvider
      */
-    public function test_printOut($fizzBuzzObject, $expectedResult)
+    public function test_printOut($fizzBuzzObject, $eol, $expectedResult)
     {
-        $actualResult = $fizzBuzzObject->printOut();
+        $actualResult = $fizzBuzzObject->printOut($eol);
 
         $this->assertIsString($actualResult);
         $this->assertEquals($expectedResult, $actualResult);

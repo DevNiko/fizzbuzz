@@ -24,35 +24,35 @@ class FizzBuzzProducerTest extends TestCase
     public function fizzBuzzDataProvider()
     {
         return [
-            [0, ''],
-            [1, '1'],
-            [2, '2'],
-            [3, Fizz::NAME],
-            [5, Buzz::NAME],
-            [10, Buzz::NAME],
-            [15, FizzBuzz::NAME],
-            [30, FizzBuzz::NAME],
-            [33, Fizz::NAME],
-            [53, '53'],
-            [55, Buzz::NAME],
-            [60, FizzBuzz::NAME],
-            [66, Fizz::NAME],
-            [98, '98'],
-            [99, Fizz::NAME],
-            [100, Buzz::NAME],
+            [0, '', PHP_EOL],
+            [1, '\r\n', '1'],
+            [2, PHP_EOL, '2'],
+            [3, '', Fizz::NAME . PHP_EOL],
+            [5, '\r\n', Buzz::NAME],
+            [10, PHP_EOL, Buzz::NAME],
+            [15, '\r\n', FizzBuzz::NAME],
+            [30, PHP_EOL, FizzBuzz::NAME],
+            [33, PHP_EOL, Fizz::NAME],
+            [53, PHP_EOL, '53'],
+            [55, PHP_EOL, Buzz::NAME],
+            [60, '\r\n', FizzBuzz::NAME],
+            [66, PHP_EOL, Fizz::NAME],
+            [98, PHP_EOL, '98'],
+            [99, PHP_EOL, Fizz::NAME],
+            [100, '', Buzz::NAME . PHP_EOL],
         ];
     }
 
     /**
      * @dataProvider fizzBuzzDataProvider
      */
-    public function testcreateOutput($position, $expectedResult): void
+    public function testcreateOutput($position, $eol, $expectedResult): void
     {
-        $actualResult = $this->fizzBuzzProducer->createOutput($position);
+        $actualResult = $this->fizzBuzzProducer->createOutput($position, $eol);
 
         $this->assertIsString($actualResult);
         $this->assertEquals(
-            $expectedResult . PHP_EOL,
+            $expectedResult . $eol,
             $actualResult,
         );
     }

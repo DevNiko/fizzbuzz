@@ -28,26 +28,31 @@ class FizzBuzzProducer
      * All other positions will be returned as string. Negative numbers will be ignored.
      *
      * @param int $position
+     * @param string $eol = ''   Determines the EOL of the line
      * @return string
      */
-    public function createOutput(int $position): string
+    public function createOutput(int $position, string $eol = ''): string
     {
+        if ($eol === '') {
+            $eol = PHP_EOL;
+        }
+
         if ($position <= 0) {
-            return '' . PHP_EOL;
+            return '' . $eol;
         }
 
         if ($this->fizz->applicable($position) === true) {
-            return $this->fizz->printOut();
+            return $this->fizz->printOut($eol);
         }
 
         if ($this->buzz->applicable($position) === true) {
-            return $this->buzz->printOut();
+            return $this->buzz->printOut($eol);
         }
 
         if ($this->fizzBuzz->applicable($position) === true) {
-            return $this->fizzBuzz->printOut();
+            return $this->fizzBuzz->printOut($eol);
         }
 
-        return (string)$position . PHP_EOL;
+        return (string)$position . $eol;
     }
 }
