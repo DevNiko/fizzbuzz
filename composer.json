@@ -1,0 +1,21 @@
+{
+  "name": "devniko/fizzbuzz",
+  "type": "project",
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "9.5.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "FizzBuzz\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "DevNiko",
+      "email": "niko@straub.network"
+    }
+  ]
+}
