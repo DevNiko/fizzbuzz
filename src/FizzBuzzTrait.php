@@ -9,10 +9,11 @@ trait FizzBuzzTrait
     /**
      * Returns a cli printable line
      *
+     * @param string $eol Defines the line ending
      * @return string
      */
-    public function printOut(): string
+    public function printOut(string $eol): string
     {
-        return self::NAME . PHP_EOL;
+        return self::NAME . $eol;
     }
 }

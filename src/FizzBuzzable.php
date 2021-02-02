@@ -13,7 +13,8 @@ interface FizzBuzzable
     public function applicable(int $position): bool;
 
     /**
+     * @param string $eol
      * @return string
      */
-    public function printOut(): string;
+    public function printOut(string $eol): string;
 }
