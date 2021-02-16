@@ -7,6 +7,7 @@ run `composer install` at the root directory
 # Usage
 - run `php app.php` to start with default length of 100 lines.
 - run `php app.php [NUMBER]` to start with n lines. Only numbers greater than 0 are accepted. Use high values (over 1,000,000) at your own risk ;-)
+- run tests `./vendor/bin/phpunit tests`
 
 # Requirements
 - Composer
