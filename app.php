@@ -16,12 +16,10 @@ if (defined('STDIN')) {
 
 $fizzBuzzProducer = new FizzBuzzProducer(new Fizz(), new Buzz(), new FizzBuzz());
 
-$fizzBuzzGenerator = function () use ($fizzBuzzProducer, $fizzBuzzOutputLength): Generator {
-    for ($i = 1; $i <= $fizzBuzzOutputLength; $i++) {
-        yield $fizzBuzzProducer->createOutput($i);
-    }
+$fizzBuzzGenerator = function (int $index) use ($fizzBuzzProducer): Generator {
+    yield $fizzBuzzProducer->createOutput($index);
 };
 
-foreach ($fizzBuzzGenerator() as $output) {
-    fwrite(STDOUT, (string)$output);
+for ($index = 1; $index <= $fizzBuzzOutputLength; $index++) {
+    fwrite(STDOUT, ...$fizzBuzzGenerator($index));
 }
